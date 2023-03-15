@@ -11,7 +11,7 @@ const Tasks = ({ tasks, handleTaskClick, handleTaskDelete }) => {
                     key={task.id}
                     task={task}
                     handleTaskClick={handleTaskClick}
-                    handleTaskDeletion={handleTaskDelete}
+                    handleTaskDelete={handleTaskDelete}
                 />
             ))}
         </>

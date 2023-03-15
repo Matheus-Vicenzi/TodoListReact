@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { v4 as uuidv4 } from 'uuid';
 
-import Tasks from "./components/Tasks";
-import AddTask from "./components/AddTask"
-import TaskDetails from "./components/TaskDetails";
-import Header from "./components/Header";
+import Tasks from "../components/Tasks/Tasks";
+import AddTask from "../components/AddTask/AddTask"
+import TaskDetails from "../components/TaskDetails/TaskDetails";
+import Header from "../components/Header/Header";
 
 import './App.css';
 import axios from "axios";
@@ -30,7 +30,7 @@ const App = () => {
 				{
 					title: taskTitle,
 					id: uuidv4(),
-					completed: false
+					completed: false,
 				},
 			];
 			setTasks(newTask);

@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import './TaskDetails.css'
-import Button from './Button';
+import Button from '../Button/Button';
 
 const TaskDetails = () => {
     const params = useParams();

@@ -1,14 +1,14 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useNavigate } from 'react-router-dom';
 import { CgClose, CgInfo } from 'react-icons/cg';
 
 import './Task.css'
 
 const Task = ({ task, handleTaskClick, handleTaskDelete }) => {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleTaskDetailsClick = () => {
-        history.push(`/${task.title}`)
+        navigate(`/${task.title}`)
     }
 
     return (
@@ -21,12 +21,16 @@ const Task = ({ task, handleTaskClick, handleTaskDelete }) => {
             </div>
 
             <div className='buttons-container'>
-                <button className='remove-task-button' onClick={() => handleTaskDelete(task.id)}
+                <button
+                    className='remove-task-button'
+                    onClick={() => handleTaskDelete(task.id)}
                 >
                     <CgClose />
                 </button>
-                <button className='see-task-details-button'
-                    onClick={handleTaskDetailsClick}>
+                <button
+                    className='see-task-details-button'
+                    onClick={handleTaskDetailsClick}
+                >
                     <CgInfo />
                 </button>
 

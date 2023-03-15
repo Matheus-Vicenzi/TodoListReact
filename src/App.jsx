@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -44,25 +44,22 @@ const App = () => {
 		<Router>
 			<div className="container">
 				<Header />
-				<Route path='/'
-					exact
-					render={() => (
-						<>
-							<AddTask handleTaskAddition={handleTaskAddition} />
+				<Routes>
+					<Route path='/'
+						exact
+						element={[
+							<AddTask handleTaskAddition={handleTaskAddition} />,
 							<Tasks
 								tasks={tasks}
 								handleTaskClick={handleTaskClick}
 								handleTaskDelete={handleTaskDelete}
 							/>
-						</>
-					)}>
-
-				</Route>
-				<Route path="/:taskTitle" exact component={TaskDetails}>
-				</Route>
+						]} />
+					<Route path="/:taskTitle" exact element={<TaskDetails />} />
+				</Routes>
 			</div>
 		</Router>
-	)
+	);
 };
 
 export default App;
